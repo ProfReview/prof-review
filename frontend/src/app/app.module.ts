@@ -17,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
-import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   imports: [
@@ -39,7 +39,7 @@ import { InstructorReviewComponent } from './components/instructor-review/instru
     MatGridListModule,
     MatButtonModule  
   ],
-  declarations: [AppComponent, SignupComponent, InstructorReviewComponent],
+  declarations: [AppComponent, SignupComponent, LoginComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
