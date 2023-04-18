@@ -18,6 +18,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './components/login/login.component';
+import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,7 @@ import { LoginComponent } from './components/login/login.component';
     MatGridListModule,
     MatButtonModule  
   ],
-  declarations: [AppComponent, SignupComponent, LoginComponent],
+  declarations: [AppComponent, SignupComponent, LoginComponent, RatingBarComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
