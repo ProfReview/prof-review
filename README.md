@@ -6,8 +6,8 @@ This repository contains the source code and related files for the ProfReview pr
 
 The repository is structured as follows:
 
-- `backend`: Contains the backend code for the platform, written in Angular.
-- `frontend`: Contains the frontend code for the platform, written in NestJS.
+- `backend`: Contains the backend code for the platform, written in NestJS.
+- `frontend`: Contains the frontend code for the platform, written in Angular.
 
 
 ## Purpose
