@@ -11,11 +11,9 @@ export class User {
   @Prop({ required: true, unique: true })
   username: string;
 
-  @Prop({ type: mongoose.Types.ObjectId, required: true, ref: 'Department' })
+  @Prop({ required: true })
   department: string;
 
-  @Prop({ type: [mongoose.Types.ObjectId], ref: 'Course' })
-  courses;
   @Prop({ required: true, unique: true })
   schoolId: string;
 
@@ -30,5 +28,7 @@ export class User {
 
   @Prop({ type: [mongoose.Types.ObjectId], ref: 'Rating' })
   ratings;
+  @Prop({ type: [mongoose.Types.ObjectId], ref: 'comment' })
+  comments;
 }
 export const UserSchema = SchemaFactory.createForClass(User);
