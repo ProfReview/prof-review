@@ -9,16 +9,11 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    flex-wrap: wrap;
 }
 
 .left {
     display: flex;
     flex-direction: column;
-}
-
-.reviews-container {
-    width: 80%;
 }
 
 .right {
