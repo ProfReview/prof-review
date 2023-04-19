@@ -40,8 +40,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatDialogModule} from '@angular/material/dialog';
+import { MatTabsModule} from '@angular/material/tabs';
+import { ViewCommentComponent } from './components/view-comment/view-comment.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
 
 
@@ -91,12 +93,16 @@ import {MatTabsModule} from '@angular/material/tabs';
     InstructorProfileComponent,
     RatingBarComponent,
     InstructorsListPageComponent,
+    CommentSectionComponent,
+
+
     HomeComponent,
 
+    ViewCommentComponent,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents:[InstructorReviewInputComponent]
 })
-export class AppModule { }
+export class AppModule {}

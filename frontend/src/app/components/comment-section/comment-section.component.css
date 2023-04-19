@@ -1,0 +1,13 @@
+.comments {
+    resize: none;
+  }
+  mat-form-field {
+    width: 45rem;
+  }
+  .comment-section {
+    display: flex;
+  }
+  .comment-section button {
+    align-self: flex-end;
+    margin-bottom: 1.2rem;
+  }
