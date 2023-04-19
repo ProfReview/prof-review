@@ -4,7 +4,7 @@
 a {
   margin-right: .5rem ;
 
-}
+} 
 
 .container{
   display: flex;
@@ -19,7 +19,7 @@ a {
   padding-left: .4rem;
   border: none;
   font-size: medium;
-
+  
 }
 ::ng-deep .searchBar:focus {
   outline: none;
