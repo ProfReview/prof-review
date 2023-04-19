@@ -99,4 +99,4 @@ import {MatTabsModule} from '@angular/material/tabs';
   bootstrap: [AppComponent],
   entryComponents:[InstructorReviewInputComponent]
 })
-export class AppModule {}
+export class AppModule { }
