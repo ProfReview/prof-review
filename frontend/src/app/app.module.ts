@@ -14,11 +14,15 @@ import { LoginComponent } from './components/login/login.component';
 import { InstructorReviewInputComponent } from './components/instructor-review-input/instructor-review-input.component';
 import { InstructorReviewDisplayComponent } from './components/instructor-review-display/instructor-review-display.component';
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
+
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
 import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
+
+import { InstructorReviewInputComponent } from './components/instructor-review-input/instructor-review-input.component';
+
 
 
 // Angular material stuff
@@ -37,6 +41,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
+import { TopTagsComponent } from './components/top-tags/top-tags.component';
 
 @NgModule({
   imports: [
@@ -77,6 +82,10 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
     InstructorProfileComponent,
     RatingBarComponent,
     InstructorsListPageComponent,
+
+    InstructorReviewComponent,
+    InstructorReviewInputComponent,
+    TopTagsComponent
 
   ],
   providers: [],
