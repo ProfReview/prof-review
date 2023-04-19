@@ -10,13 +10,14 @@ import { CoursesModule } from './courses/courses.module';
 import { InstructorsModule } from './instructors/instructors.module';
 import { AdminModule } from './admin/admin.module';
 import { DepartmentModule } from './department/department.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot(
       'mongodb+srv://amanuel:test1234@cluster0.8yo5agg.mongodb.net/?retryWrites=true&w=majority',
       {
-        dbName: 'RateTheInstructor',
+        dbName: 'ProfReview',
       },
     ),
     ReportsModule,
@@ -27,6 +28,7 @@ import { DepartmentModule } from './department/department.module';
     CoursesModule,
     InstructorsModule,
     DepartmentModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

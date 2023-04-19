@@ -5,6 +5,7 @@ import {
 } from '@nestjs/common/exceptions';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { CommentService } from 'src/comment/services/comment/comment.service';
 import { ICourse } from 'src/courses/interfaces/course.interface';
 import { CoursesService } from 'src/courses/services/courses/courses.service';
 import { DepartmentService } from 'src/department/service/department.service';
@@ -23,6 +24,8 @@ export class InstructorsService {
     private readonly courseService: CoursesService,
     @Inject(forwardRef(() => RatingService))
     private readonly ratingService: RatingService,
+    @Inject(forwardRef(() => CommentService))
+    private readonly commentService: CommentService,
   ) {}
 
   async createInstructors(
@@ -52,11 +55,7 @@ export class InstructorsService {
   async getAllInstructors(): Promise<IInstructor[]> {
     let instructors: IInstructor[];
     try {
-      instructors = await this.instructorModel
-        .find()
-        .populate('department')
-        .populate('courses')
-        .populate('ratings');
+      instructors = await this.instructorModel.find();
     } catch (err) {
       throw err;
     }
@@ -72,7 +71,6 @@ export class InstructorsService {
       instructor = await this.instructorModel
         .findOne({ id })
         .populate('department')
-        .populate('courses')
         .populate('ratings');
     } catch (err) {
       console.log('instructor not found ');
@@ -109,6 +107,7 @@ export class InstructorsService {
       await this.ratingService.deleteMany({
         instructorId: id,
       });
+      await this.commentService.deleteAll({ instructorId: id });
 
       if (deletedInstructor.courses) {
         deletedInstructor.courses.forEach(async (courseId) => {
@@ -149,6 +148,7 @@ export class InstructorsService {
       throw err;
     }
   }
+
   async addCourse(instructorId: string, course: ICourse) {
     try {
       const instructor = await this.getInstructor(instructorId);
@@ -181,6 +181,33 @@ export class InstructorsService {
       );
       this.rateInstructor(deletedRating, 'deleteRating');
       this.sortTags(instructor);
+      await instructor.save();
+      return instructor;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async addComment(instructorId: string, commentId: string) {
+    try {
+      const instructor = await this.getInstructor(instructorId);
+
+      if (instructor.comments) {
+        instructor.comments.push(commentId);
+      } else {
+        instructor.comments = [commentId];
+      }
+      await instructor.save();
+      return instructor;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async deleteComment(instructorId: string, commentId: string) {
+    try {
+      const instructor: IInstructor = await this.getInstructor(instructorId);
+      instructor.comments = instructor.comments.filter(
+        (comment) => comment.toString() !== commentId,
+      );
       await instructor.save();
       return instructor;
     } catch (err) {

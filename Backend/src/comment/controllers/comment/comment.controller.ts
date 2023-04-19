@@ -16,7 +16,7 @@ export class CommentController {
   constructor(private commentService: CommentService) {}
 
   @Get()
-  async getAll() {
+  async getAll(): Promise<IComment[]> {
     return this.commentService.findAll();
   }
 
@@ -44,7 +44,7 @@ export class CommentController {
   }
 
   @Delete()
-  async deleteAll() {
-    return this.commentService.deleteAll();
+  async deleteAll(filter) {
+    return this.commentService.deleteAll(filter);
   }
 }
