@@ -52,7 +52,11 @@ export class InstructorsService {
   async getAllInstructors(): Promise<IInstructor[]> {
     let instructors: IInstructor[];
     try {
-      instructors = await this.instructorModel.find();
+      instructors = await this.instructorModel
+        .find()
+        .populate('department')
+        .populate('courses')
+        .populate('ratings');
     } catch (err) {
       throw err;
     }
@@ -68,8 +72,8 @@ export class InstructorsService {
       instructor = await this.instructorModel
         .findOne({ id })
         .populate('department')
-        .populate('ratings')
-        .populate('courses');
+        .populate('courses')
+        .populate('ratings');
     } catch (err) {
       console.log('instructor not found ');
       throw err;
@@ -236,7 +240,7 @@ export class InstructorsService {
     );
     instructor.overallRating = newOverall;
     instructor.difficultyRating = newDifficulty;
-    this.updateTags(rating, instructor, operationType);
+    // this.updateTags(rating, instructor, operationType);
 
     try {
       await instructor.save();
