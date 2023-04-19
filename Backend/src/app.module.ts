@@ -9,19 +9,24 @@ import { RatingsModule } from './ratings/ratings.module';
 import { CoursesModule } from './courses/courses.module';
 import { InstructorsModule } from './instructors/instructors.module';
 import { AdminModule } from './admin/admin.module';
+import { DepartmentModule } from './department/department.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017', {
-      dbName: 'ProfReview',
-    }),
+    MongooseModule.forRoot(
+      'mongodb+srv://amanuel:test1234@cluster0.8yo5agg.mongodb.net/?retryWrites=true&w=majority',
+      {
+        dbName: 'RateTheInstructor',
+      },
+    ),
     ReportsModule,
     RatingsModule,
+    AdminModule,
     AuthModule,
     UserModule,
     CoursesModule,
     InstructorsModule,
-    AdminModule,
+    DepartmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
