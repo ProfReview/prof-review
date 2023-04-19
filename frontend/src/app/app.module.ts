@@ -21,9 +21,6 @@ import { InstructorCardComponent } from './components/instructor-card/instructor
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
-import { InstructorReviewInputComponent } from './components/instructor-review-input/instructor-review-input.component';
-
-
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -41,7 +38,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
-import { TopTagsComponent } from './components/top-tags/top-tags.component';
 
 @NgModule({
   imports: [
