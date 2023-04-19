@@ -37,6 +37,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { InstructorsListPageComponent } from './pages/instructors-list-page/inst
 
     InstructorReviewComponent,
     InstructorReviewInputComponent,
-    TopTagsComponent
+    TopTagsComponent,
+    HomeComponent
 
   ],
   providers: [],
