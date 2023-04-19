@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { DepartmentService } from '../service/department.service';
-import { Department } from '../interface/department.interface';
+import { IDepartment } from '../interface/department.interface';
 import { CreateDepartmentDto } from '../dto/department.dto';
 
 @Controller('department')
@@ -18,7 +18,7 @@ export class DepartmentController {
   constructor(private readonly departmentService: DepartmentService) {}
 
   @Get()
-  findAll(): Promise<Department[]> {
+  findAll(): Promise<IDepartment[]> {
     return this.departmentService.findAll();
   }
 
@@ -30,12 +30,12 @@ export class DepartmentController {
   @Post()
   create(
     @Body() createDepartmentDto: CreateDepartmentDto,
-  ): Promise<Department> {
+  ): Promise<IDepartment> {
     return this.departmentService.create(createDepartmentDto);
   }
 
   @Delete(':id')
-  delete(@Param() Param): Promise<Department> {
+  delete(@Param() Param): Promise<IDepartment> {
     return this.departmentService.delete(Param.id);
   }
 
@@ -43,7 +43,7 @@ export class DepartmentController {
   update(
     @Param('id') id,
     @Body() updateDepartmentdto: CreateDepartmentDto,
-  ): Promise<Department> {
+  ): Promise<IDepartment> {
     return this.departmentService.update(id, updateDepartmentdto);
   }
 }

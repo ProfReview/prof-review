@@ -1,10 +1,14 @@
-export interface User {
-  id?: string;
+import { Document } from 'mongoose';
+
+export interface IUser extends Document {
   firstname: string;
   lastname: string;
+  username: string;
   department: string;
-  ID: string;
+  schoolId: string;
   password: string;
   email: string;
-  acadamicYear: number;
+  academicYear: number;
+  createdAt: Date;
+  updatedAt: Date;
 }
