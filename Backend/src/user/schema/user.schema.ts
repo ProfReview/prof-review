@@ -11,9 +11,11 @@ export class User {
   @Prop({ required: true, unique: true })
   username: string;
 
-  @Prop({ required: true })
+  @Prop({ type: mongoose.Types.ObjectId, required: true, ref: 'Department' })
   department: string;
 
+  @Prop({ type: [mongoose.Types.ObjectId], ref: 'Course' })
+  courses;
   @Prop({ required: true, unique: true })
   schoolId: string;
 
