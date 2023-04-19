@@ -11,6 +11,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
+import { InstructorReviewInputComponent } from './components/instructor-review-input/instructor-review-input.component';
 
 // Angular-material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,7 +27,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
-import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
 
 @NgModule({
   imports: [
@@ -56,8 +56,8 @@ import { ProfessorDetailComponent } from './components/professor-detail/professo
     LoginComponent,
     NavBarComponent,
     InstructorReviewComponent,
-    TopTagsComponent,
-    ProfessorDetailComponent
+    InstructorReviewInputComponent,
+    TopTagsComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
