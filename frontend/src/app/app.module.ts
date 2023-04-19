@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,10 +19,12 @@ import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
 import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
-import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
-import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
-import { HomeComponent } from "./components/home/home.component";
 
+import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
+
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+
+import { HomeComponent } from './components/home/home.component';
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -40,18 +43,22 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-import { MatDialogModule} from '@angular/material/dialog';
-import { MatTabsModule} from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+
+
 import { ViewCommentComponent } from './components/view-comment/view-comment.component';
-import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+
     BrowserAnimationsModule,
     BrowserModule,
 
@@ -76,12 +83,11 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
     MatDialogModule,
     MatSidenavModule,
     MatTabsModule,
-
-
   ],
   declarations: [
     AppComponent,
     SignupComponent,
+
     LoginComponent,
     NavBarComponent,
     InstructorReviewDisplayComponent,
@@ -92,17 +98,18 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
     InstructorCardComponent,
     InstructorProfileComponent,
     RatingBarComponent,
-    InstructorsListPageComponent,
-    CommentSectionComponent,
 
+
+    InstructorsListPageComponent,
 
     HomeComponent,
+
 
     ViewCommentComponent,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[InstructorReviewInputComponent]
+  entryComponents: [InstructorReviewInputComponent],
 })
 export class AppModule {}
