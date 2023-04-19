@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -14,12 +15,16 @@ import { LoginComponent } from './components/login/login.component';
 import { InstructorReviewInputComponent } from './components/instructor-review-input/instructor-review-input.component';
 import { InstructorReviewDisplayComponent } from './components/instructor-review-display/instructor-review-display.component';
 import { InstructorReviewComponent } from './components/instructor-review/instructor-review.component';
-
 import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
 import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
+
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
+
+import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+
+import { HomeComponent } from "./components/home/home.component";
 
 
 // Angular material stuff
@@ -35,14 +40,22 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
-import { HomeComponent } from './components/home/home.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
+
+import { ViewCommentComponent } from './components/view-comment/view-comment.component';
+
+
 
 
 @NgModule({
   imports: [
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -63,11 +76,19 @@ import { HomeComponent } from './components/home/home.component';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
+    MatTableModule,
+
+    MatTableModule,
+    MatDialogModule,
+    MatSidenavModule,
+    MatTabsModule,
+
 
   ],
   declarations: [
     AppComponent,
     SignupComponent,
+  
     LoginComponent,
     NavBarComponent,
     InstructorReviewDisplayComponent,
@@ -79,14 +100,16 @@ import { HomeComponent } from './components/home/home.component';
     InstructorProfileComponent,
     RatingBarComponent,
     InstructorsListPageComponent,
+    
+    HomeComponent,
 
-    InstructorReviewComponent,
-    InstructorReviewInputComponent,
-    TopTagsComponent,
-    HomeComponent
+    ViewCommentComponent,
+
+
 
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[InstructorReviewInputComponent]
 })
 export class AppModule {}
