@@ -24,8 +24,11 @@ import { InstructorProfileComponent } from './components/instructor-profile/inst
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { HomeComponent } from "./components/home/home.component";
+import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
-import { HomeComponent } from './components/home/home.component';
+
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -48,7 +51,6 @@ import { MatTableModule } from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 
-import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
 
 import { HttpClientModule } from '@angular/common/http';
@@ -103,7 +105,7 @@ import { HttpClientModule } from '@angular/common/http';
     InstructorsListPageComponent,
 
     HomeComponent,
-
+    CommentSectionComponent,
 
     ViewCommentComponent,
 
