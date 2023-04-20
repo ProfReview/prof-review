@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
 
+
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -45,19 +47,22 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
 
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+
     BrowserAnimationsModule,
     BrowserModule,
 
@@ -82,8 +87,6 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDialogModule,
     MatSidenavModule,
     MatTabsModule,
-
-
   ],
   declarations: [
     AppComponent,
@@ -103,6 +106,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 
     HomeComponent,
     CommentSectionComponent,
+
     ViewCommentComponent,
 
 
@@ -110,6 +114,6 @@ import {MatTabsModule} from '@angular/material/tabs';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[InstructorReviewInputComponent]
+  entryComponents: [InstructorReviewInputComponent],
 })
 export class AppModule {}

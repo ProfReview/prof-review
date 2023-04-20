@@ -1,15 +1,21 @@
-<div class="comment-section">
-    <mat-form-field appearance="fill">
-      <mat-label>Want to give a comment about this instructor?</mat-label>
-      <textarea
-        rows="5"
-        cols="18"
-        placeholder="Your comment"
-        class="comments"
-        matInput
-      ></textarea>
-    </mat-form-field>
-      <button style="margin-left: 6px" mat-raised-button color="primary">
-        Comment
-      </button>
-  </div>
+<div class="comment-section" *ngIf="loggedInUser">
+  <mat-form-field appearance="fill">
+    <mat-label>Want to give a comment about this instructor?</mat-label>
+    <textarea
+      rows="5"
+      cols="18"
+      placeholder="Your comment"
+      class="comments"
+      matInput
+      [(ngModel)]="commentText"
+    ></textarea>
+  </mat-form-field>
+  <button
+    (click)="submitComment()"
+    style="margin-left: 6px"
+    mat-raised-button
+    color="primary"
+  >
+    Comment
+  </button>
+</div>
