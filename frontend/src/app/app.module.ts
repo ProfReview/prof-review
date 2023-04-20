@@ -23,8 +23,9 @@ import { InstructorProfileComponent } from './components/instructor-profile/inst
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
-
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { HomeComponent } from "./components/home/home.component";
+import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
 
 // Angular material stuff
@@ -47,7 +48,6 @@ import { MatTableModule } from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 
-import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
 
 
@@ -88,7 +88,7 @@ import { ViewCommentComponent } from './components/view-comment/view-comment.com
   declarations: [
     AppComponent,
     SignupComponent,
-  
+
     LoginComponent,
     NavBarComponent,
     InstructorReviewDisplayComponent,
@@ -100,9 +100,9 @@ import { ViewCommentComponent } from './components/view-comment/view-comment.com
     InstructorProfileComponent,
     RatingBarComponent,
     InstructorsListPageComponent,
-    
-    HomeComponent,
 
+    HomeComponent,
+    CommentSectionComponent,
     ViewCommentComponent,
 
 
