@@ -1,22 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { TokenService } from '../token/token.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  
+
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
+
   api = 'https://ratetheinstructor-production.up.railway.app/api'
-  endpoint = 'auth'
+  endpoint = 'auth';
 
   // Stuff related to the logged in user
 
-  private userSubject = new BehaviorSubject(null);
+
+
+  public userSubject = new BehaviorSubject( this.tokenService.getUserData() || null);
 
   setUser() {
     const userData = localStorage.getItem('userData');
     this.userSubject.next(JSON.parse(userData!));
+
   }
 
   getUser() {
@@ -25,16 +31,20 @@ export class AuthService {
 
   // Stuff related to the logged in user ENDS
 
-  constructor(private http: HttpClient) { }
 
   login(userData: any): Observable<any> {
     return this.http.post(`${this.api}/${this.endpoint}/login`, userData);
   }
 
-  signup(signUpData: any){
-    return this.http.post<any>(`${this.api}/${this.endpoint}/signup`, signUpData);
+  signup(signUpData: any) {
+    return this.http.post<any>(
+      `${this.api}/${this.endpoint}/signup`,
+      signUpData
+    );
   }
 
-  logout(){}
-
+  logout() {}
+  updateUser(id: string, signUpData: any) {
+    return this.http.patch<any>(`${this.api}/user/${id}`, signUpData);
+  }
 }
