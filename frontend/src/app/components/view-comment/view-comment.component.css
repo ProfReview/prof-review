@@ -92,7 +92,6 @@ hr {
 ::ng-deep .menuItems {
   font-size: 12px;
 }
-
 .button-class {
   display: flex;
   align-items: center;
@@ -102,7 +101,6 @@ hr {
   justify-self: start;
   align-self: flex-start;
 }
-
 span {
   display: flex;
   align-items: center;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,11 +8,11 @@ import { ViewEncapsulation } from '@angular/core';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
+  constructor(private authService: AuthService, private router: Router) {}
+
   hide = true;
 
   signUpData = {
-    firstname: '',
-    lastname: '',
     username: '',
     schoolId: '',
     email: '',
@@ -19,8 +20,28 @@ export class SignupComponent {
     department: '',
     academicYear: 1,
   };
+  
+  departmentNames: any = ['SITE', 'SMIE', 'SECE', 'SCEE', 'SCBE', 'CBME'];
+
+  departments: any = {
+    SITE: '63f480a5fea0517ef6834071',
+    SMIE: '63f480b8fea0517ef6834073',
+    SECE: '63f480c1fea0517ef6834075',
+    SCEE: '63f480d2fea0517ef6834077',
+    SCBE: '63f480dbfea0517ef6834079',
+    CBME: '63f480e8fea0517ef683407b',
+  };
 
   ngOnInit() {}
 
-  handleSubmit(formData: any) {}
+  handleSignup() {
+    console.log(this.signUpData);
+    this.authService.signup(this.signUpData).subscribe(
+      (res) => {
+        alert('Account created, you will be redirected to the login page!');
+        this.router.navigate(['/login']);
+      },
+      (error) => alert('Oops an error occured, please try again!')
+    );
+  }
 }
