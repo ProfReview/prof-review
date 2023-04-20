@@ -2,17 +2,18 @@
   <div class="prof-card-num-rating">
     <h4 style="font-weight: bold">RATING</h4>
     <div class="val">
-      <h2 style="font-weight: 900">{{ any.overallRating }}</h2>
+
+      <h2 style="font-weight: 900">{{ instructor.overallRating | number:'1.1-1' }}</h2>
     </div>
-    <div style="font-weight: bold">{{ any.totalRating }} Ratings</div>
+    <div style="font-weight: bold">{{ instructor.totalRating | number:'1.0-0' }} Ratings</div>
   </div>
   <div class="prof-info">
-    <div class="name">{{ any.firstName }}</div>
-    <div class="department">{{ any.department }}</div>
+    <div class="name">{{ instructor.firstName }}</div>
+    <div class="department">{{ instructor.department.departmentName }}</div>
   </div>
   <div class="prof-profile-button">
-    <button mat-raised-button routerLink="/instructors/34">
-      Check {{ any.firstName }}&#x27;s Rating
+    <button mat-raised-button [routerLink]="['/instructors', instructor._id]">
+      Check {{ instructor.firstName }}&#x27;s Rating
     </button>
   </div>
 </div>

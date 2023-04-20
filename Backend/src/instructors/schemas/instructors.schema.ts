@@ -33,10 +33,21 @@ export const InstructorSchema = new mongoose.Schema(
     courses: {
       required: true,
       type: [mongoose.Types.ObjectId],
+      ref: 'Course',
     },
     department: {
       required: true,
       type: mongoose.Types.ObjectId,
+      ref: 'Department',
+    },
+
+    ratings: {
+      type: [mongoose.Types.ObjectId],
+      ref: 'Rating',
+    },
+    comments: {
+      type: [mongoose.Types.ObjectId],
+      ref: 'Comment',
     },
     totalRating: {
       required: true,
@@ -87,36 +98,3 @@ export const InstructorSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-
-// export const InsctructorModel = new mongoose.Model(
-//   'Instructor',
-//   InstructorSchema,
-// );
-// import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-
-// @Schema({ timestamps: true })
-// export class Insctructor {
-//   @Prop()
-//   firstName: string;
-//   @Prop()
-//   lastName: string;
-//   @Prop()
-//   courses: String[]; // realtions place holder
-//   @Prop()
-
-//   department: string;
-//   @Prop()
-
-//   totalRating: number;
-//   @Prop()
-//   overallRating: string; //relations
-//   @Prop()
-//   difficultyRating: string;
-
-//   @Prop()
-//   ratingDistribution: string; //place holder
-//   @Prop()
-//   tagCounter: string; //place holder
-// }
-
-// export const InsctructorSchema = SchemaFactory.createForClass(Insctructor);

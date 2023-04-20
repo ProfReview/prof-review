@@ -6,8 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./instructor-card.component.css'],
 })
 export class InstructorCardComponent {
-any: any;
-instructor: any;
-  constructor() {}
 
+  constructor() {}
+  @Input() instructor!: any;
 }

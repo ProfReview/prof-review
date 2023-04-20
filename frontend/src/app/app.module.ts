@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -43,9 +44,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatTabsModule } from '@angular/material/tabs';
 
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
@@ -56,6 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
 
@@ -98,14 +100,14 @@ import { HttpClientModule } from '@angular/common/http';
     InstructorCardComponent,
     InstructorProfileComponent,
     RatingBarComponent,
-
-
     InstructorsListPageComponent,
 
     HomeComponent,
 
 
     ViewCommentComponent,
+
+
 
   ],
   providers: [],
