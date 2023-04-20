@@ -53,7 +53,6 @@ import {MatTabsModule} from '@angular/material/tabs';
 
 
 
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
