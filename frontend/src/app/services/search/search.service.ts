@@ -1,39 +1,20 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ReviewService {
-  
-  constructor(private http: HttpClient) { }
+export class SearchService {
+  constructor() {}
 
-  api = 'https://ratetheinstructor-production.up.railway.app/api'
-  endpoint = '/rating'
+  searchString = new BehaviorSubject<string>('');
 
-  postRating(rating:any): Observable<any>{
-    return this.http.post<any>(`${this.api}/${this.endpoint}`, rating)
-  }
-
-  getAllReviews(): Observable<any>{
-    return this.http.get<any>(`${this.api}/${this.endpoint}`)
+  changeSearchValue(str: string) {
+    console.log('Changed subject value');
+    this.searchString.next(str);
   }
 
-  getRatingsForInstructor(instructorId: string): Observable<any>{
-    return this.http.get<any>(`${this.api}/${this.endpoint}/instructor/${instructorId}`)
+  get searchStringValue() {
+    return this.searchString.asObservable();
   }
-  
-  getRatingById(id:string): Observable<any>{
-    return this.http.get<any>(`${this.api}/${this.endpoint}/${id}`)
-  }
-  
-  deleteReview(id: string){
-    this.http.delete<any>(`${this.api}/${this.endpoint}/${id}`)
-  }
-
-  editReview(instructor: any, id: string){
-    this.http.patch<any>(`${this.api}/${this.endpoint}/${id}`, instructor)
-  }
-  
 }

@@ -2,7 +2,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingSystemComponent } from './components/rating-system/rating-system.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,15 +21,11 @@ import { TopTagsComponent } from './components/top-tags/top-tags.component';
 import { ProfessorDetailComponent } from './components/professor-detail/professor-detail.component';
 import { InstructorCardComponent } from './components/instructor-card/instructor-card.component';
 import { InstructorProfileComponent } from './components/instructor-profile/instructor-profile.component';
-
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
-
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
-import { HomeComponent } from "./components/home/home.component";
-import { ViewCommentComponent } from './components/view-comment/view-comment.component';
-
-
+import { HomeComponent } from './components/home/home.component';
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -47,24 +44,19 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatTabsModule} from '@angular/material/tabs';
-
-
-
-import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
+import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
 @NgModule({
   imports: [
-    HttpClientModule,
     AppRoutingModule,
-    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-
+    NgbModule,
     BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
 
     // Angular material
     MatFormFieldModule,
@@ -91,7 +83,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     SignupComponent,
-
+    RatingSystemComponent,
     LoginComponent,
     NavBarComponent,
     InstructorReviewDisplayComponent,
@@ -102,15 +94,14 @@ import { HttpClientModule } from '@angular/common/http';
     InstructorCardComponent,
     InstructorProfileComponent,
     RatingBarComponent,
-    InstructorsListPageComponent,
 
-    HomeComponent,
+    InstructorsListPageComponent,
     CommentSectionComponent,
 
+    HomeComponent,
+
+    UserProfileComponent,
     ViewCommentComponent,
-
-
-
   ],
   providers: [],
   bootstrap: [AppComponent],

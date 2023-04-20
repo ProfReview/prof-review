@@ -5,6 +5,7 @@ import { RatingService } from 'src/app/services/rating/rating.service';
 import { TokenService } from 'src/app/services/token/token.service';
 import { InstructorReviewComponent } from '../instructor-review/instructor-review.component';
 import { InstructorService } from 'src/app/services/instructor/instructor.service';
+import { RatingSystemComponent } from '../rating-system/rating-system.component';
 
 @Component({
   selector: 'app-instructor-review-input',
@@ -21,6 +22,11 @@ export class InstructorReviewInputComponent {
   ) {}
 
   @ViewChild('reviewText') reviewText!: InstructorReviewComponent;
+  @ViewChild('starRating') starRating!: RatingSystemComponent;
+
+  edit: any;
+  isEdit: boolean = false;
+  rating: any;
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -29,7 +35,30 @@ export class InstructorReviewInputComponent {
 
       this.instructorService
         .getInstructorsById(instructorId)
-        .subscribe((instructor) => (this.instructor = instructor));
+        .subscribe((instructor) => {
+          this.instructor = instructor;
+
+          const userData = this.tokenService.getUserData();
+
+          for (let rating of instructor.ratings) {
+            if (rating.userId === userData.id) {
+              this.isEdit = true;
+              this.rating = rating;
+
+              // populate the rating data
+              // this.ratingData.questions = rating.questions;
+              // this.ratingData.courseId = rating.courseId._id;
+              // this.ratingData.instructorId = rating.instructorId;
+              // this.ratingData.overallRating = rating.overallRating;
+              // this.selectedTags = rating.tags;
+              // this.ratingData.review = rating.review;
+            }
+          }
+        });
+    });
+
+    this.route.queryParams.subscribe((params) => {
+      this.edit = Boolean(params['edit']);
     });
   }
 
@@ -58,16 +87,14 @@ export class InstructorReviewInputComponent {
   selectedTags: Array<string> = [];
 
   questionsMap: any = {
-    WouldYouTakeThisInstructorAgain: 'Would you take this Instructor again?',
-    DidThisProfessorUseTextbooks: 'Did this Instrucotr use textbooks?',
-    DidTheInstuctorShareMaterials: 'Did the instructor share materials',
-    ExamQuestionsOutOfScope: 'Exam Questions Out Of Scope',
-    WasAttendanceMandatory: 'Was Attendance Mandatory',
-    SelectGradeReceived: 'Select Grade Received',
-    DoesTheInstructorKnowsTheSubjectWell:
-      ' Does The Instructor Knows The Subject Well',
-    IsTheInstructorGoodAtExplainingConcepts:
-      'Is The Instructor Good At Explaining Concepts',
+    WouldYouTakeThisInstructorAgain: 'Would take again?',
+    DidThisProfessorUseTextbooks: 'Use textbooks?',
+    DidTheInstuctorShareMaterials: 'Share materials?',
+    ExamQuestionsOutOfScope: 'Exam Out Of Scope?',
+    WasAttendanceMandatory: 'Attendance Mandatory?',
+    SelectGradeReceived: 'Grade Received',
+    DoesTheInstructorKnowsTheSubjectWell: 'Knows The Subject Well?',
+    IsTheInstructorGoodAtExplainingConcepts: 'Explains Concepts well?',
   };
 
   tags = [
@@ -101,11 +128,12 @@ export class InstructorReviewInputComponent {
   }
 
   submitRating() {
+    console.log(this.instructor.ratings, console.log(this.isEdit));
     const userData = this.tokenService.getUserData();
 
-    if (!userData){
-      this.router.navigate(['/login'])
-      return
+    if (!userData) {
+      this.router.navigate(['/login']);
+      return;
     }
 
     const userId = userData.id;
@@ -127,7 +155,7 @@ export class InstructorReviewInputComponent {
     });
 
     const newQuestionsArray = transformedArray.filter(
-      (qa) => qa.answer !== '' && qa
+      (qa) => qa.answer !== '' && qa && qa.question
     );
 
     this.ratingData = {
@@ -137,14 +165,27 @@ export class InstructorReviewInputComponent {
     };
 
     this.ratingData.userId = userId;
-
     this.ratingData.review = this.reviewText.reviewText;
-
+    this.ratingData.overallRating = this.starRating.rating;
 
     console.log(this.ratingData);
 
-    this.ratingService.postRating(this.ratingData).subscribe((rating) => {
-      this.router.navigate(['/instructors/', this.instructorId]);
-    });
+    if (!this.isEdit) {
+      this.ratingService.postRating(this.ratingData).subscribe(
+        (rating) => {
+          this.router.navigate(['/instructors/', this.instructorId]);
+        },
+        (error) => alert('You are not eligible to rate this instructor')
+      );
+    } else {
+      this.ratingService
+        .updateRating(this.rating._id, this.ratingData)
+        .subscribe(
+          (rating) => {
+            this.router.navigate(['/instructors/', this.instructorId]);
+          },
+          (error) => alert('You are not eligible to rate this instructor')
+        );
+    }
   }
 }
