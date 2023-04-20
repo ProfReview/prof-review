@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,8 +25,7 @@ import { RatingBarComponent } from './components/rating-bar/rating-bar.component
 
 import { InstructorsListPageComponent } from './pages/instructors-list-page/instructors-list-page.component';
 
-import { HomeComponent } from "./components/home/home.component";
-
+import { HomeComponent } from './components/home/home.component';
 
 // Angular material stuff
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -44,20 +44,23 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 
 import { ViewCommentComponent } from './components/view-comment/view-comment.component';
 
 
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
+    HttpClientModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+
     BrowserAnimationsModule,
     BrowserModule,
 
@@ -82,13 +85,11 @@ import { ViewCommentComponent } from './components/view-comment/view-comment.com
     MatDialogModule,
     MatSidenavModule,
     MatTabsModule,
-
-
   ],
   declarations: [
     AppComponent,
     SignupComponent,
-  
+
     LoginComponent,
     NavBarComponent,
     InstructorReviewDisplayComponent,
@@ -100,8 +101,9 @@ import { ViewCommentComponent } from './components/view-comment/view-comment.com
     InstructorProfileComponent,
     RatingBarComponent,
     InstructorsListPageComponent,
-    
+
     HomeComponent,
+
 
     ViewCommentComponent,
 
@@ -110,6 +112,6 @@ import { ViewCommentComponent } from './components/view-comment/view-comment.com
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[InstructorReviewInputComponent]
+  entryComponents: [InstructorReviewInputComponent],
 })
 export class AppModule {}
