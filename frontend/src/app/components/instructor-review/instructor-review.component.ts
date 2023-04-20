@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class InstructorReviewComponent {
 
+  reviewText: string = ''
+  
+  maxInputLength = 300
+  typedCharsLength = 0
+  
+  typed(e: any) {
+    this.typedCharsLength = e.target.value.length;
+  }
+
 }
