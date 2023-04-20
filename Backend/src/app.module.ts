@@ -17,7 +17,7 @@ import { CommentModule } from './comment/comment.module';
     MongooseModule.forRoot(
       'mongodb+srv://amanuel:test1234@cluster0.8yo5agg.mongodb.net/?retryWrites=true&w=majority',
       {
-        dbName: 'ProfReview',
+        dbName: 'RateTheInstructor',
       },
     ),
     ReportsModule,
