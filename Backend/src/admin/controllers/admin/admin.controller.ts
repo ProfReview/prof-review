@@ -1,5 +1,5 @@
-import { Admin } from '../schema/admin.schema';
-import { AdminService } from '../service/admin.service';
+import { Admin } from '../../schema/admin.schema';
+import { AdminService } from '../../service/admin.service';
 import {
   Controller,
   Post,
@@ -9,7 +9,7 @@ import {
   Param,
   Put,
 } from '@nestjs/common';
-import { CreateAdminDto } from '../dto/admin.dto';
+import { CreateAdminDto } from '../../dto/admin.dto';
 
 @Controller('admin')
 export class AdminController {
