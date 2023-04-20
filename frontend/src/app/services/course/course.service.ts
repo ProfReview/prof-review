@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CourseService {
 
-  api = 'https://ratetheinstructor-production.up.railway.app/api';
+  api = 'https://prof-review-production.up.railway.app/api';
   endpoint = 'courses'
 
   constructor(private http: HttpClient) { }

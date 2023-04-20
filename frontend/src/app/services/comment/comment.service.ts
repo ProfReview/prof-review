@@ -10,7 +10,7 @@ export class Commentervice {
   constructor(private http: HttpClient) {}
 
   commentUrl =
-    'https://ratetheinstructor-production.up.railway.app/api/comment';
+    'https://prof-review-production.up.railway.app/api/comment';
 
   getComments() {
     return this.http.get<any>(this.commentUrl);

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class InstructorService {
   constructor(private http: HttpClient) {}
   private instructorUrl =
-    'https://ratetheinstructor-production.up.railway.app/api/instructors';
+    'https://prof-review-production.up.railway.app/api/instructors';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };

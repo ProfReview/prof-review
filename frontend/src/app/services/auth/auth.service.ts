@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  api = 'https://ratetheinstructor-production.up.railway.app/api'
+  api = 'https://prof-review-production.up.railway.app/api'
   endpoint = 'auth';
 
   // Stuff related to the logged in user

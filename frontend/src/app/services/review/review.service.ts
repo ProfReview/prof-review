@@ -9,7 +9,7 @@ export class ReviewService {
   
   constructor(private http: HttpClient) { }
 
-  api = 'https://ratetheinstructor-production.up.railway.app/api'
+  api = 'https://prof-review-production.up.railway.app/api'
   endpoint = '/rating'
 
   postRating(rating:any): Observable<any>{

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class RatingService {
-  api = 'https://ratetheinstructor-production.up.railway.app/api';
+  api = 'https://prof-review-production.up.railway.app/api';
   endpoint = 'rating';
 
   constructor(private http: HttpClient) {}
