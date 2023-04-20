@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { CreateAdminDto } from '../dto/admin.dto';
 
-@Controller('controller')
+@Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 

@@ -9,17 +9,11 @@ export enum roles {
 
 @Schema({ timestamps: true })
 export class User {
-  @Prop({ required: true })
-  firstname: string;
-
-  @Prop({ required: true })
-  lastname: string;
-
   @Prop({ required: true, unique: true })
   username: string;
 
   @Prop({ type: mongoose.Types.ObjectId, required: true, ref: 'Department' })
-  department: string;
+  department;
 
   @Prop({ type: [mongoose.Types.ObjectId], ref: 'Course' })
   courses;

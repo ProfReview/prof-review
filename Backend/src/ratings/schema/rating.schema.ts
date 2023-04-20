@@ -22,21 +22,32 @@ export enum Tags {
 }
 
 export enum Questions {
-  WouldYouTakeThisInstructorAgain = 'Would you take this Instructor again?',
-  DidThisProfessorUseTextbooks = 'Did this Instrucotr use textbooks?',
-  DidTheInstuctorShareMaterials = 'Did the instructor share materials',
-  ExamQuestionsOutOfScope = 'Exam Questions Out Of Scope',
-  WasAttendanceMandatory = 'Was Attendance Mandatory',
-  SelectGradeReceived = 'Select Grade Received',
-  DoesTheInstructorKnowsTheSubjectWell = ' Does The Instructor Knows The Subject Well',
-  IsTheInstructorGoodAtExplainingConcepts = 'Is The Instructor Good At Explaining Concepts',
+  WouldYouTakeThisInstructorAgain = 'Would take again?',
+  DidThisProfessorUseTextbooks = 'Uses textbooks?',
+  DidTheInstuctorShareMaterials = 'Shares materials?',
+  ExamQuestionsOutOfScope = 'Exam Out Of Scope?',
+  WasAttendanceMandatory = 'Attendance Mandatory?',
+  SelectGradeReceived = 'Grade Received',
+  DoesTheInstructorKnowsTheSubjectWell = 'Knows The Subject Well?',
+  IsTheInstructorGoodAtExplainingConcepts = 'Explains Concepts well?',
 }
+
 export enum Answers {
   YES = 'yes',
   NO = 'no',
   SOMETIMES = 'sometimes',
   TOSOMEEXTENT = 'to some extent',
   A = 'A',
+  AMinus = 'A-',
+  APlus = 'A+',
+  B = 'B',
+  BMinus = 'B-',
+  BPlus = 'B+',
+  CMinus = 'C-',
+  CPlus = 'C+',
+  C = 'C',
+  D = 'D',
+  F = 'F',
 }
 
 // @Schema({ timestamps: true })
@@ -93,13 +104,13 @@ export enum Answers {
 
 export const RatingSchema = new mongoose.Schema(
   {
-    userId: String, //{ type: mongoose.Types.ObjectId, ref: 'User', required: true },
-    instructorId: String, //{
-    //   type: mongoose.Types.ObjectId,
-    //   ref: 'Instructor',
-    //   required: true,
-    // },
-    courseId: String, //{ type: mongoose.Types.ObjectId, ref: 'Course', required: true },
+    userId: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
+    instructorId: {
+      type: mongoose.Types.ObjectId,
+      ref: 'Instructor',
+      required: true,
+    },
+    courseId: { type: mongoose.Types.ObjectId, ref: 'Course', required: true },
     tags: [
       {
         type: String,

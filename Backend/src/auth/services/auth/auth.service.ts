@@ -46,27 +46,25 @@ export class AuthService {
     const {
       _id,
       username,
-      firstname,
-      lastname,
       department,
       schoolId,
       email,
       academicYear,
       createdAt,
       updatedAt,
+      role,
     } = user;
     // console.log({ id: _id, ...rest, ...token }, 'the response payload');
     return {
       id: _id,
       username,
-      firstname,
-      lastname,
       department,
       schoolId,
       email,
       academicYear,
       createdAt,
       updatedAt,
+      role,
       ...token,
     };
   }
